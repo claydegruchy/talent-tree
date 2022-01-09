@@ -83,11 +83,9 @@ var exportLayout = {
 };
 
 var colours = {
-  background: 'rgb(200, 242, 254)',
-  reply: 'rgb(215,  218, 238)',
-  name: 'rgb(54,  117, 72)',
-  subject: 'rgb(28, 24,  98)',
-  quote: 'rgb(131, 155, 65)',
+  background: 'gray',
+  reply: '#d3d3d3',
+  text: 'rgb(25,84,166)',
 };
 
 const ChartStyle = [
@@ -109,7 +107,7 @@ const ChartStyle = [
     style: {
       label: 'data(label)',
       'font-size': fontSize,
-      color: colours.name,
+      color: colours.text,
       'text-halign': 'center',
       'text-valign': 'center',
     },
@@ -157,7 +155,7 @@ const ChartStyle = [
     selector: 'node.found',
     style: {
       'font-size': fontSize * 1.2,
-      'border-color': 'black',
+      // 'border-color': 'black',
       'border-width': '5',
       'background-color': 'pink',
     },

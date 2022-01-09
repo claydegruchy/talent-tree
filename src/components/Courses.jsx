@@ -1,7 +1,7 @@
 import data from './processed-courses.json';
 
 const parseCourseData = () => {
-  console.log(data);
+  console.log('loading', data);
 
   const makeNode = (c) => ({
     // classes,
@@ -39,7 +39,6 @@ const parseCourseData = () => {
     }
   }
 
-  console.log({ edges });
   return { nodes, edges };
 };
 

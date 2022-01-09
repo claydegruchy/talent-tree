@@ -4,6 +4,8 @@ import './App.css';
 
 function App() {
   const [search, setSearch] = useState();
+  document.title = 'Talent Tree';
+
   return (
     <div className='App'>
       <header className='App-header'></header>
@@ -18,6 +20,7 @@ function App() {
       <div>
         <Chart search={search} />
       </div>
+      <div>Created by Clay D</div>
     </div>
   );
 }
