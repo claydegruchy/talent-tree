@@ -38,6 +38,7 @@ var req = {
 };
 
 async function downloadCourses() {
+	// this downloads all the course objects for each avabile course
 	var chunkSize = 100;
 
 	var chunks = chunkArrayInGroups(activeCourses, chunkSize);
@@ -45,6 +46,7 @@ async function downloadCourses() {
 	console.log(chunks.length);
 
 	var bulk = [];
+	var i = 0;
 
 	for (var chunk of chunks) {
 		console.log('starting new chunk');
@@ -64,30 +66,60 @@ async function downloadCourses() {
 			'./courses-full.json',
 			JSON.stringify(req.mem, null, 2)
 		);
+		i++;
 		console.timeEnd('chunk');
-		console.log('chunk compelted');
+		console.log('chunk compelted', (i / chunks.length) * 100, new Date());
 	}
 
 	console.log('done');
 }
 
-(async () => {
+async function findPrereqs() {
+	// this goes though the prerequisite descriptions and find course ids
 	var courses = Object.entries(req.mem).filter(
 		([k, v]) => v.course.prerequisites
 	);
 	console.log(courses.length);
 
-	console.log('asd', ids[2]);
-
-	var prereq = [];
 	for (var [code, obj] of courses) {
 		// console.log(obj.course.prerequisites)
 		var find = ids.filter((id) => obj.course.prerequisites.includes(id));
-		if (find.length>0) {
-
-		console.log(code, find);
+		if (find.length > 0) {
+			// console.log(code, find);
+			req.mem[code].course.prerequisiteCodes = find;
 		}
 	}
 
-	console.log(prereq.length);
+	console.log('saving');
+	fs.writeFileSync('./courses-full.json', JSON.stringify(req.mem, null, 2));
+}
+
+async function findAllRelevantCourses() {
+	// this goes though all the data that we have and determines which courses should appear on the chart data
+	var courses = Object.entries(req.mem).filter(
+		([k, v]) => v.course.prerequisiteCodes
+	);
+
+	var allPrereq = [];
+	courses.forEach(([k, c]) => {
+		allPrereq = [...allPrereq, ...c.course.prerequisiteCodes, k];
+	});
+
+	console.log('allPrereq', allPrereq.length, [...new Set(allPrereq)].length);
+
+	return Object.entries(req.mem)
+		.filter(([k, v]) => allPrereq.includes(k))
+		.map(([k, v]) => v);
+}
+
+(async () => {
+	// await downloadCourses();
+	// await findPrereqs();
+	// var r = await findAllRelevantCourses();
+	// fs.writeFileSync(
+	// 	'../src/components/processed-courses.json',
+	// 	JSON.stringify(r, null, 2)
+	// );
+
+	// console.log(r);
 })();
