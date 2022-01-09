@@ -53,13 +53,13 @@ var exportLayout = {
   // Node repulsion (non overlapping) multiplier
   nodeRepulsion: 4500,
   // Ideal (intra-graph) edge length
-  idealEdgeLength: 300,
+  idealEdgeLength: 500,
   // Divisor to compute edge forces
   edgeElasticity: 0.25,
   // Nesting factor (multiplier) to compute ideal edge length for inter-graph edges
   nestingFactor: 0.1,
   // Gravity force (constant)
-  gravity: 0.25,
+  gravity: 1.25,
   // Maximum number of iterations to perform
   numIter: 2500,
   // Whether to tile disconnected nodes

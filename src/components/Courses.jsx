@@ -6,7 +6,7 @@ const parseCourseData = () => {
   const makeNode = (c) => ({
     // classes,
     data: {
-      ...c.course,
+      // ...c.course,
       id: c.course.courseCode,
       label: c.course.title || 'No name',
     },

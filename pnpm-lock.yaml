@@ -6,6 +6,8 @@ specifiers:
   cytoscape-cise: ^1.0.0
   cytoscape-cola: ^2.5.0
   cytoscape-cose-bilkent: ^4.1.0
+  cytoscape-euler: ^1.2.2
+  cytoscape-fcose: ^2.1.0
   cytoscape-klay: ^3.1.4
   plop: ^3.0.5
   react: ^17.0.2
@@ -18,6 +20,8 @@ dependencies:
   cytoscape-cise: 1.0.0_cytoscape@3.20.0
   cytoscape-cola: 2.5.0_cytoscape@3.20.0
   cytoscape-cose-bilkent: 4.1.0_cytoscape@3.20.0
+  cytoscape-euler: 1.2.2_cytoscape@3.20.0
+  cytoscape-fcose: 2.1.0_cytoscape@3.20.0
   cytoscape-klay: 3.1.4_cytoscape@3.20.0
   react: 17.0.2
   react-cytoscapejs: 1.2.1_react-dom@17.0.2+react@17.0.2
@@ -634,6 +638,12 @@ packages:
       layout-base: 1.0.2
     dev: false
 
+  /cose-base/2.1.0:
+    resolution: {integrity: sha512-HTMm07dhxq1dIPGWwpiVrIk9n+DH7KYmqWA786mLe8jDS+1ZjGtJGIIsJVKoseZXS6/FxiUWCJ2B7XzqUCuhPw==}
+    dependencies:
+      layout-base: 2.0.1
+    dev: false
+
   /cytoscape-cise/1.0.0_cytoscape@3.20.0:
     resolution: {integrity: sha512-Y1NPaUo4fN992XJTEIDd4oPVkv8BsDSrFBHSB38caDu8PcmHUyl8/Q8K5wvqdTeti1mLR9IX4/o2RyuObh+P7Q==}
     peerDependencies:
@@ -659,6 +669,23 @@ packages:
       cytoscape: ^3.2.0
     dependencies:
       cose-base: 1.0.3
+      cytoscape: 3.20.0
+    dev: false
+
+  /cytoscape-euler/1.2.2_cytoscape@3.20.0:
+    resolution: {integrity: sha512-A24ZGrFpqCOutTIlGoXA5kmjFj68iy7HvqXuhcZUL1a7Z8bL59Bl2bB7hkSvFcCZBVCNcArxKr+YlB8bJo9Ftw==}
+    peerDependencies:
+      cytoscape: ^3.0.0
+    dependencies:
+      cytoscape: 3.20.0
+    dev: false
+
+  /cytoscape-fcose/2.1.0_cytoscape@3.20.0:
+    resolution: {integrity: sha512-Q3apPl66jf8/2sMsrCjNP247nbDkyIPjA9g5iPMMWNLZgP3/mn9aryF7EFY/oRPEpv7bKJ4jYmCoU5r5/qAc1Q==}
+    peerDependencies:
+      cytoscape: ^3.2.0
+    dependencies:
+      cose-base: 2.1.0
       cytoscape: 3.20.0
     dev: false
 
@@ -1363,6 +1390,10 @@ packages:
 
   /layout-base/1.0.2:
     resolution: {integrity: sha512-8h2oVEZNktL4BH2JCOI90iD1yXwL6iNW7KcCKT2QZgQJR2vbqDsldCTPRU9NifTCqHZci57XvQQ15YTu+sTYPg==}
+    dev: false
+
+  /layout-base/2.0.1:
+    resolution: {integrity: sha512-dp3s92+uNI1hWIpPGH3jK2kxE2lMjdXdr+DH8ynZHpd6PUlH6x6cbuXnoMmiNumznqaNO31xu9e79F0uuZ0JFg==}
     dev: false
 
   /liftoff/4.0.0:

@@ -4,16 +4,21 @@ import ReactDOMServer from 'react-dom/server';
 
 import { useState, useEffect } from 'react';
 
-import COSEBilkent from 'cytoscape-cose-bilkent';
-import cola from 'cytoscape-cola';
-import klay from 'cytoscape-klay';
-import cise from 'cytoscape-cise';
 import CytoscapeComponent from 'react-cytoscapejs';
 import Cytoscape from 'cytoscape';
 
 import { parseCourseData } from './Courses';
 import { ChartStyle, exportLayout } from './ChartStyle';
 
+import COSEBilkent from 'cytoscape-cose-bilkent';
+import cola from 'cytoscape-cola';
+import klay from 'cytoscape-klay';
+import cise from 'cytoscape-cise';
+import fcose from 'cytoscape-fcose';
+import euler from 'cytoscape-euler';
+
+Cytoscape.use(euler);
+Cytoscape.use(fcose);
 Cytoscape.use(cise);
 Cytoscape.use(cola);
 Cytoscape.use(COSEBilkent);
@@ -23,6 +28,9 @@ var layout = {
   name: 'cose-bilkent',
   // name: 'cola',
   // name: 'cise',
+  // name: 'fcose',
+  // name: 'euler',
+
   // name: 'klay',
   ...exportLayout,
 };
@@ -73,7 +81,7 @@ const Chart = ({ search }) => {
         width: '100%',
         height: '92vh',
       }}
-      minZoom={0.2}
+      // minZoom={0.2}
       maxZoom={5}
       elements={CytoscapeComponent.normalizeElements(parseCourseData())}
       layout={layout}
