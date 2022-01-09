@@ -7,6 +7,8 @@ This system takes all avalible courses from the KTH API and charts them into a h
 # How do I use this
 Select a course to see what prerequisites it has, and what future courses it may enable. Use the search in the top right to find specific courses. Doubleclick to open the page for that course on the KTH website.
 # How does it work
+KTH doesn't actually give an easy way to do this, so we need to download all courses then process them to find which rely on each other.
+
 `./course-processor/` containes `index.js` which is simple nodejs. This script can be used to pull all courses from the KTH API and then find which prereqs each has. The prereq find process is pretty medicore as I'm just searching inside the prereq field (where possible).
 
 This JS file produces a `processed-courses.json`, which the react app then consoles to create the chart.
