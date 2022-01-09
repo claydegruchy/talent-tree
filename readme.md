@@ -1,5 +1,7 @@
 # TalentTree
-A system to display education courses in a talent tree style layout. Based initally off the KTH course API.
+A system to display education courses in a talent tree style layout. Based initally off the KTH course API. Check it out here: 
+
+https://claydegruchy.github.io/talent-tree/dist/index
 # What exactly am I looking at here
 This system takes all avalible courses from the KTH API and charts them into a heirachy, showing which courses are required to take which others. 
 # How do I use this
