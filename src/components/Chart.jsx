@@ -34,7 +34,7 @@ var layout = {
   ...exportLayout,
 };
 
-var last = '';
+var last = 'cose-bilkent';
 
 const Chart = ({ search, layoutSelection }) => {
   return (
@@ -56,7 +56,9 @@ const Chart = ({ search, layoutSelection }) => {
           var found = cy
             .nodes()
             .filter(function (ele, i, eles) {
-              var t = ele.data('title');
+              console.log(ele)
+              var t = ele.data('label');
+              console.log(t)
               if (t.toLowerCase().includes(lowSearch)) {
                 return ele;
               }
