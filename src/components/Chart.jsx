@@ -30,16 +30,25 @@ var layout = {
   // name: 'cise',
   // name: 'fcose',
   // name: 'euler',
-
   // name: 'klay',
   ...exportLayout,
 };
 
-const Chart = ({ search }) => {
+var last = '';
+
+const Chart = ({ search, layoutSelection }) => {
   return (
     <CytoscapeComponent
       cy={(cy) => {
         cy.ready(function (event) {
+          if (last != layoutSelection) {
+            //   sl(layoutSelection);
+            //   console.log({l,layoutSelection})
+            last = layoutSelection;
+            console.log({ layoutSelection, last });
+            layout.name = layoutSelection;
+            cy.layout(layout).run();
+          }
           cy.nodes('.found').removeClass('found');
           if (!search) return;
           var lowSearch = search.toLowerCase();

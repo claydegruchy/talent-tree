@@ -4,6 +4,17 @@ import './App.css';
 
 function App() {
   const [search, setSearch] = useState();
+  const [layoutSelection, setLayoutSelection] = useState('cose-bilkent');
+
+  var layoutOptions = [
+    'cose-bilkent',
+    'cola',
+    'cise',
+    'fcose',
+    'euler',
+    'klay',
+  ];
+
   document.title = 'Talent Tree';
 
   return (
@@ -16,9 +27,14 @@ function App() {
           }}
           placeholder={'Search'}
         />
+          <select onChange={(e) => setLayoutSelection(e.target.value)}>
+            {layoutOptions.map((o) => (
+              <option value={o}>Layout: {o}</option>
+            ))}
+          </select>
       </div>
       <div>
-        <Chart search={search} />
+        <Chart search={search} layoutSelection={layoutSelection} />
       </div>
       <div>Created by Clay D</div>
     </div>
